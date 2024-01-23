@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<title>FirstApp</title>
+</head>
+<body>
+<div class="container" id="app">
+	<div class="row">
+		<div class="col-md-8 display_section">
+			<!-- Vue Simplest Value Binding -->
+			<h1 class="text-center">{{pageTitle}}</h1>
+			<!-- Vue Simplest Value Binding -->
+			<div class="bookTable">
+				<div class="allBooks">
+				
+					<div class="empty_table" v-if="cart.length == 0">Null</div>
+					<div class="book" v-else v-for="cartItem in cart" :class="cartItem.name.toLowerCase()">
+						<div class="bookName">{{cartItem.name}}</div>
+						<div class="bookCut">
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Vue Attribute Binding -->
+				<img style="width: 300px;" v-bind:src="tableImg" alt="">
+				<!-- Vue Attribute Binding -->
+			</div>
+		</div>
+		<div class="col-md-4 input_section">
+			<h2 class="text-center">CartBox</h2>
+			
+			<div class="cart_box">
+				<h5 class="text-center p-2 border-bottom">Cart Items</h5>
+				<p class="mb-0 pl-2 pr-2" style="font-size: 14px; color:#898989; font-weight: bold;" >
+					Total Produts in Cart : <span :style="cart.length == 0 ? {color:'red'} : {color:'green'}">{{cart.length}}</span>
+				</p>
+				<div class="product_section">
+					<div class="product" :key="varient.id" v-for="varient in varients">
+						<div class="row">
+							<div class="col-6 pt-2">{{varient.name}}</div>
+							<div class="col-2 pt-2">{{varient.price}}</div>
+							<div class="col-4">
+								<div class="row">
+									<button class="btn btn-sm btn-success m-1" v-on:click="addToCart(varient.id)"><iconify-icon icon="ic:round-plus"></iconify-icon></button>
+									<button class="btn btn-sm btn-danger m-1" v-on:click="removeFromCart(varient.id)"><iconify-icon icon="ic:round-minus"></iconify-icon></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cart_details border-top">
+					<div class="row">
+						<div class="col-8">Sub Total</div>
+						<div class="col-4">{{ total }} $</div>
+					</div>
+					<div class="confirm_btn">
+						<button class="btn btn-success btn-block mt-3 rounded-pill">Place Order</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	const mountedapp = app.mount('#app');
+</script>
+
+</body>
+</html>

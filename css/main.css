@@ -1,0 +1,151 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+:root{
+	--color-bg:#fffcf6;
+	--color-bg-deep:#1e3151;
+	--color-hover:#e09664;
+	--color-hover-next:#6c4343;
+	--color-deep:black;
+	--color-white:white;
+	--color-smoke:#e6e6e6;
+	--color-notify:#d61a0b;
+	--color-black:black;
+	--color-pest:#00C0EF;
+	--color-green:#00A75B;
+	--color-orange:#F49C11;
+	--color-blue:#3C8EBC;
+}
+
+body{
+	background:var(--color-bg);
+}
+.container .display_section{
+	position: relative;
+	height: 100vh;
+}
+.container .display_section .bookTable{
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.container .display_section .bookTable .allBooks{
+	width: 300px;
+	height: auto;
+	display: flex;
+    flex-flow: column-reverse;
+	overflow: hidden;
+	position: absolute;
+	bottom: 230px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+
+.container .display_section .bookTable .allBooks .book{
+	height:30px;
+	width:140px;
+	margin: 0px auto;
+    position: relative;
+    z-index: 999;
+	border: 5px solid #942343;
+	border-radius: 10px 0 0 10px;
+	border-right: 0px;
+	background: #fffff0;
+	background-size: 2px 2px;
+    background-image: repeating-linear-gradient(to top, #c9c9c9, #c9c9c9 1px, #ffffff 1px, #ffffff);
+	box-shadow: -1px 1px 3px #c1c1c1;
+}
+.container .display_section .bookTable .allBooks .book .bookName{ 
+	position: absolute;
+    left: 15px;
+    font-size: 14px;
+    font-family: monospace;
+    font-weight: bolder;
+    color: #0000007a;
+}
+.container .display_section .bookTable .allBooks .book .bookCut{ 
+	background:var(--color-bg);
+    width: 5px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+}
+.container .display_section .bookTable .allBooks .science{
+	border: 5px solid #1677cc;
+	border-right: 0px;
+}
+.container .display_section .bookTable .allBooks .account{
+	border: 5px solid #c5ab03;
+	border-right: 0px;
+}
+.container .display_section .bookTable .allBooks .physics{
+	border: 5px solid #6a5cff;
+	border-right: 0px;
+}
+.container .display_section .bookTable .allBooks .electronics{
+	border: 5px solid #fa9494;
+	border-right: 0px;
+}
+.container .display_section .bookTable .allBooks .java{
+	border: 5px solid #62cf58;
+	border-right: 0px;
+}
+
+
+
+
+.container .display_section .bookTable .allBooks .empty_table{
+	height:30px;
+	width:140px;
+	margin: 0px auto;
+    position: relative;
+    z-index: 999;
+	text-align: center;
+}
+
+
+
+.container .input_section .cart_box{ 
+	width: 90%;
+	height: 400px;
+	margin: 0px auto;
+	background: white;
+	border-radius: 25px;
+	border: 1px solid #e4e4e4;
+    box-shadow: 0 0 0 0.2rem rgb(214 214 214 / 17%);
+	margin-top: 50px;
+}
+
+.container .input_section .cart_box .product_section{ 
+	height: 230px;
+    max-height: 230px;
+    padding: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container .input_section .cart_box .product_section::-webkit-scrollbar {
+	width: 6px;
+}
+.container .input_section .cart_box .product_section::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg-deep);
+}
+
+
+.container .input_section .cart_box .cart_details{ 
+	font-weight: bold;
+	padding: 10px;
+}
+
+
+
+
