@@ -12,28 +12,19 @@
 </head>
 <body>
 <div class="container" id="app">
+	
+	<div class="alert alert-success alert-block" id="flash_messsage" v-if="successOrder">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		<strong class="text-dark">{{ successMsg }}</strong>
+	</div>
+
 	<div class="row">
-		<div class="col-md-8 display_section">
-			<!-- Vue Simplest Value Binding -->
-			<h1 class="text-center">{{pageTitle}}</h1>
-			<!-- Vue Simplest Value Binding -->
-			<div class="bookTable">
-				<div class="allBooks">
-				
-					<div class="empty_table" v-if="cart.length == 0">Null</div>
-					<div class="book" v-else v-for="cartItem in cart" :class="cartItem.name.toLowerCase()">
-						<div class="bookName">{{cartItem.name}}</div>
-						<div class="bookCut">
-						</div>
-					</div>
 
-				</div>
+		<!-- Book Shelf Section -->
+			<book-shelf :cart="cart"></book-shelf>
+		<!-- Book Shelf Section -->
 
-				<!-- Vue Attribute Binding -->
-				<img style="width: 300px;" v-bind:src="tableImg" alt="">
-				<!-- Vue Attribute Binding -->
-			</div>
-		</div>
+		<!-- CartBox Section -->
 		<div class="col-md-4 input_section">
 			<h2 class="text-center">CartBox</h2>
 			
@@ -62,19 +53,28 @@
 						<div class="col-4">{{ total }} $</div>
 					</div>
 					<div class="confirm_btn">
-						<button class="btn btn-success btn-block mt-3 rounded-pill">Place Order</button>
+						<button class="btn btn-success btn-block mt-3 rounded-pill order_btn" @click="toggleModal">Place Order</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- CartBox Section -->
+
+		<!-- Order Form -->
+			<order-form :cart="cart" :total="total" v-if="showModal" @toggle-order-form="toggleModal" @clear-cart="clearCart" @success-order="successOrderfn"></order-form>
+		<!-- Order Form -->
+
 	</div>
 </div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/scripts.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/main.js"></script>
+<script src="components/bookShelf.js"></script>
+<script src="components/orderForm.js"></script>
 
 <script type="text/javascript">
 	const mountedapp = app.mount('#app');

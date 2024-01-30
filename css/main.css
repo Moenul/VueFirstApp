@@ -55,7 +55,7 @@ body{
 	width:140px;
 	margin: 0px auto;
     position: relative;
-    z-index: 999;
+    z-index: 10;
 	border: 5px solid #942343;
 	border-radius: 10px 0 0 10px;
 	border-right: 0px;
@@ -104,11 +104,12 @@ body{
 
 
 .container .display_section .bookTable .allBooks .empty_table{
-	height:30px;
+	height:50px;
 	width:140px;
+	font-size: 45px;
 	margin: 0px auto;
     position: relative;
-    z-index: 999;
+    z-index: 10;
 	text-align: center;
 }
 
@@ -146,6 +147,64 @@ body{
 	padding: 10px;
 }
 
+.container .backdrop{ 
+	width: 100%;
+	height: 100%;
+	background: #0000003b;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 40;
+	/* display: none; */
+}
+.container .order_form{ 
+	/* display: none; */
+	width: 500px;
+	height: auto;
+	background: whitesmoke;
+	border-radius: 25px;
+	border: 1px solid #e4e4e4;
+    box-shadow: 0 0 0 0.2rem rgb(117 117 117 / 17%);
+	overflow: hidden;
+	padding: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 50;
+}
 
 
 
+
+
+/* /////  Alert Box Start ------------------- */
+#flash_messsage{
+    width: 500px;
+    padding: 5px 20px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+    overflow: hidden;
+}
+#flash_messsage::before{
+	content: '';
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: #0c0c0c2b;
+	animation: slideing 3.5s infinite;
+}
+#flash_messsage strong{
+    font-size: 14px;
+}
+
+@keyframes slideing {
+	from {left: 0px;}
+	to {left: -100%;}
+}
+/* /////  Alert Box End ------------------- */
